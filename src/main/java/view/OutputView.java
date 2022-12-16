@@ -14,7 +14,7 @@ public class OutputView {
     private static final String FUNCTION_SELECTION_REQUEST_HEADLINE = "## 원하는 기능을 선택하세요.";
     private static final String TABLE_SELECTION_REQUEST_HEADLINE = "## 테이블을 선택하세요.";
     private static final String MENU_SELECTION_REQUEST_HEADLINE = "## 등록할 메뉴를 선택하세요.";
-    private static final String PAYMENT_SELECTION_REQUEST_HEADLINE = "## 등록할 메뉴를 선택하세요.";
+    private static final String PAYMENT_SELECTION_REQUEST_HEADLINE = "## 신용 카드는 1번, 현금은 2번";
     private static final String SPACE = " ";
     private static final String MAIN_SCREEN_BAR = SPACE + "-" + SPACE;
 
