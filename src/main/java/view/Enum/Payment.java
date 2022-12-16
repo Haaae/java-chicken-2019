@@ -7,8 +7,8 @@ import java.util.function.Consumer;
 
 public enum Payment {
 
-    CREDIT_CARD("1", 0.9),
-    CASH("2", 1);
+    CREDIT_CARD("1", 1),
+    CASH("2", 0.95);
 
     private final String symbol;
     private final double discountRate;
@@ -29,6 +29,7 @@ public enum Payment {
     public String getSymbol() {
         return symbol;
     }
+
     public double getDiscountRate() {
         return discountRate;
     }

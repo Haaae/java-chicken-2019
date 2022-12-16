@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class TableRepository {
+
     private static final List<Table> tables = new ArrayList<>();
 
     static {
@@ -23,16 +24,18 @@ public class TableRepository {
     }
 
     public void takeOrder(int tableNumber, int menuNumber, int menuQuantity) {
-        //TODO : 기능 구현
+        findTable(tableNumber).takeOrder(menuNumber, menuQuantity);
     }
 
     public int amountOfPayment(int tableNumber) {
-        //TODO : 기능 구현
-        return 0;
+        return findTable(tableNumber).getAmountOfPayment();
     }
 
     public Map<Menu, Integer> getOrderHistory(int tableNumber) {
-        //TODO : 기능 구현
-        return new HashMap<>();결제금액
+        return findTable(tableNumber).getOrderHistory();
+    }
+
+    private Table findTable(int tableNumber) {
+        return tables.get(tables().indexOf(new Table(tableNumber)));
     }
 }

@@ -11,7 +11,6 @@ import view.OutputView;
 public class Controller {
 
     private final TableRepository tableRepository = new TableRepository();
-    private final MenuRepository menuRepository = new MenuRepository();
 
     public void run() {
         MainScreen mainScreen;
@@ -22,7 +21,6 @@ public class Controller {
     }
 
     public void takeOrder() {
-        // TODO: 기능 구현. 해당 함수는 Menu 열거형의 Consumer로 전달된다.
         int tableNumber = ExceptionHandler.input(
                 InputView::inputTableNumber, TableRepository.tables());
         int menuNumber = ExceptionHandler.input(
@@ -33,7 +31,6 @@ public class Controller {
     }
 
     public void pay() {
-        // TODO: 기능 구현
         int tableNumber = ExceptionHandler.input(
                 InputView::inputTableNumber, TableRepository.tables());
         OutputView.printOrderHistory(tableRepository.getOrderHistory(tableNumber));
