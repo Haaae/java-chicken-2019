@@ -1,6 +1,7 @@
 package view;
 
 public class InputValidator {
+
     public static int numberValidate(String input) {
         try {
             return Integer.parseInt(input);

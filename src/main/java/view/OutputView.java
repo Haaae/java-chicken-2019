@@ -9,10 +9,11 @@ import java.util.Map;
 import view.Enum.MainScreen;
 
 public class OutputView {
+
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
-    private static final String POUND_KEY  = "##";
+    private static final String POUND_KEY = "##";
     private static final String TABLE_PAYMENT_NOTICE = "번 테이블의 결제를 진행합니다.";
     private static final String MENU_HEADLINE = "## 메인화면";
     private static final String ORDER_HISTORY_HEADLINE = "## 주문 내역";
@@ -51,7 +52,7 @@ public class OutputView {
         orderHistory.keySet()
                 .forEach(menu -> System.out.println(menu + " "
                         + orderHistory.get(menu) + " "
-                                + menu.getPrice() * orderHistory.get(menu)));
+                        + menu.getPrice() * orderHistory.get(menu)));
     }
 
     // 메인화면 출력

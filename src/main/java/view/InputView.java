@@ -8,6 +8,7 @@ import view.Enum.MainScreen;
 import view.Enum.Payment;
 
 public class InputView {
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int inputTableNumber(List<Table> tables) {
@@ -33,6 +34,7 @@ public class InputView {
 
     public static int inputMenuNumber(List<Menu> menus) {
         OutputView.printMenus(menus);
+        OutputView.printMenuSelectionRequest();
         String input = scanner.nextLine().trim();
         return InputValidator.numberValidate(input);
     }

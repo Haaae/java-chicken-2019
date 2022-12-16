@@ -9,7 +9,8 @@ public enum MainScreen {
 
     TAKING_ORDER("1", "주문등록", Controller::takeOrder),
     PAYMENT("2", "결제하기", Controller::pay),
-    QUIT("3", "프로그램 종료", Controller -> {});
+    QUIT("3", "프로그램 종료", Controller -> {
+    });
 
     private final String symbol;
     private final String name;

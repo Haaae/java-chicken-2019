@@ -33,16 +33,25 @@
 
 ### 뷰
 
-- [] 메인화면 출력
-- 원하는 기능 선택 알림
-- 테이블 목록
-- 테이블 선택 알림
-- 메뉴판 출력
-- 등록할 메뉴 선택알림
-- 테이블의 주문 내역 출력
-- 특정 테이블 결제 진행 알림
-- 신용 카드 현금 선택 문구 출력
-- 최종 결제 금액 출력
+#### Output
+
+- [x] 메인화면 출력 - printMainScreen()
+- [x] 원하는 기능 선택 알림 - printFunctionSelectionRequest()
+- [x] 테이블 목록 - printTables(final List<Table> tables)
+- [x] 테이블 선택 알림 - printTableSelectionRequest()
+- [x] 메뉴판 출력 - public static void printMenus(final List<Menu> menus)
+- [x] 등록할 메뉴 선택알림 - printMenuSelectionRequest()
+- [] 테이블의 주문 내역 출력
+- [] 특정 테이블 결제 진행 알림
+- [x] 신용 카드 현금 선택 문구 출력 - printPaymentSelectionRequest()
+- [] 최종 결제 금액 출력
+
+#### Input
+
+- [x] 테이블 숫자
+- [x] 메인화면 기능 
+- [x] 결제수단
+- [x] 등록할 메뉴
 
 ### Controller
 
