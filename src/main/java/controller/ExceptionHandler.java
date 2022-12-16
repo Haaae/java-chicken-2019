@@ -1,6 +1,8 @@
 package controller;
 
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ExceptionHandler {
@@ -8,7 +10,7 @@ public class ExceptionHandler {
     /**
      * @param supplier, 즉 예외를 발생시킬 수 있는 InputView 함수
      * @return 인자로 들어간 InputView 함수의 반환값을 반환
-     * @param <T>
+     * @param <T> MainScreen
      */
     public static <T> T input(Supplier<T> supplier) {
         try {
@@ -31,6 +33,15 @@ public class ExceptionHandler {
         } catch (IllegalArgumentException | IllegalStateException e) {
             printExceptionMessage(e);
             process(consumer, t);
+        }
+    }
+
+    public static <T, R> R input(Function<T, R> Function, T t) {
+        try {
+            return Function.apply(t);
+        } catch (IllegalArgumentException e) {
+            printExceptionMessage(e);
+            return input(Function, t);
         }
     }
 

@@ -7,15 +7,15 @@ import java.util.function.Consumer;
 
 public enum Payment {
 
-    CREDIT_CARD("1", Controller -> {}),
-    CASH("2", Controller -> {});
+    CREDIT_CARD("1", 0.9),
+    CASH("2", 1);
 
     private final String symbol;
-    private final Consumer<Controller> consumer;
+    private final double discountRate;
 
-    Payment(String symbol, Consumer<Controller> consumer) {
+    Payment(String symbol, double discountRate) {
         this.symbol = symbol;
-        this.consumer = consumer;
+        this.discountRate = discountRate;
     }
 
     public static Payment from(String symbol) {
@@ -26,11 +26,10 @@ public enum Payment {
                         "[ERROR] 결제 수단 선택은 '1' 혹은 '2'로 입력해주세요"));
     }
 
-    public void process(Controller controller) {
-        ExceptionHandler.process(consumer, controller);
-    }
-
     public String getSymbol() {
         return symbol;
+    }
+    public double getDiscountRate() {
+        return discountRate;
     }
 }

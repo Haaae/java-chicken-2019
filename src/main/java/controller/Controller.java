@@ -1,28 +1,45 @@
 package controller;
 
+import domain.MenuRepository;
+import domain.Table;
+import domain.TableRepository;
+import view.Enum.MainScreen;
+import view.Enum.Payment;
+import view.InputView;
+import view.OutputView;
+
 public class Controller {
 
-  public void run() {
-    Menu menu;
-    do {
-      menu = ExceptionHandler.input(InputView::readMenu);
-      menu.process(this);
-    } while (!menu.isQuit());
-  }
+    private final TableRepository tableRepository = new TableRepository();
+    private final MenuRepository menuRepository = new MenuRepository();
 
-  public void 기능_1() {
-      // TODO: 기능 구현. 해당 함수는 Menu 열거형의 Consumer로 전달된다.
-  }
+    public void run() {
+        MainScreen mainScreen;
+        do {
+            mainScreen = ExceptionHandler.input(InputView::inputMainFunctionNumber);
+            mainScreen.process(this);
+        } while (!mainScreen.isQuit());
+    }
 
-  public void 기능_1_내부_예외발생_시_재시작_함수() {
-    // TODO: 기능 구현. 해당 함수는 Menu 열거형이 아닌 다른 열거형의 Consumer로 전달된다.
-  }
+    public void takeOrder() {
+        // TODO: 기능 구현. 해당 함수는 Menu 열거형의 Consumer로 전달된다.
+        int tableNumber = ExceptionHandler.input(
+                InputView::inputTableNumber, TableRepository.tables());
+        int menuNumber = ExceptionHandler.input(
+                InputView::inputMenuNumber, MenuRepository.menus());
+        int menuQuantity = ExceptionHandler.input(InputView::inputMenuQuantity);
 
-  public void 기능_1() {
-    // TODO: 기능 구현
-  }
+        tableRepository.takeOrder(tableNumber, menuNumber, menuQuantity);
+    }
 
-  private void 기능_1을_위한_private함수() {
-    // TODO: 기능 구현
-  }
+    public void pay() {
+        // TODO: 기능 구현
+        int tableNumber = ExceptionHandler.input(
+                InputView::inputTableNumber, TableRepository.tables());
+        OutputView.printOrderHistory(tableRepository.getOrderHistory(tableNumber));
+        Payment payment = ExceptionHandler.input(
+                InputView::inputPaymentMethod, tableNumber);
+        int amountOfPayment = tableRepository.amountOfPayment(tableNumber);
+        OutputView.printAmountOfPayment((amountOfPayment * payment.getDiscountRate()));
+    }
 }

@@ -7,8 +7,8 @@ import java.util.function.Consumer;
 
 public enum MainScreen {
 
-    TAKING_ORDER("1", "주문등록", Controller -> {}),
-    PAYMENT("2", "결제하기", Controller -> {}),
+    TAKING_ORDER("1", "주문등록", Controller::takeOrder),
+    PAYMENT("2", "결제하기", Controller::pay),
     QUIT("3", "프로그램 종료", Controller -> {});
 
     private final String symbol;
@@ -38,5 +38,9 @@ public enum MainScreen {
 
     public String getSymbol() {
         return symbol;
+    }
+
+    public boolean isQuit() {
+        return this == QUIT;
     }
 }

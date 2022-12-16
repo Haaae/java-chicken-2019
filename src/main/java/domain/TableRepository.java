@@ -2,7 +2,9 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TableRepository {
     private static final List<Table> tables = new ArrayList<>();
@@ -18,5 +20,19 @@ public class TableRepository {
 
     public static List<Table> tables() {
         return Collections.unmodifiableList(tables);
+    }
+
+    public void takeOrder(int tableNumber, int menuNumber, int menuQuantity) {
+        //TODO : 기능 구현
+    }
+
+    public int amountOfPayment(int tableNumber) {
+        //TODO : 기능 구현
+        return 0;
+    }
+
+    public Map<Menu, Integer> getOrderHistory(int tableNumber) {
+        //TODO : 기능 구현
+        return new HashMap<>();결제금액
     }
 }
