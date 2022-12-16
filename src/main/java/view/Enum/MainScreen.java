@@ -5,7 +5,7 @@ import controller.ExceptionHandler;
 import java.util.Arrays;
 import java.util.function.Consumer;
 
-public enum Menu {
+public enum MainScreen {
 
     TAKING_ORDER("1", "주문등록", Controller -> {}),
     PAYMENT("2", "결제하기", Controller -> {}),
@@ -15,17 +15,17 @@ public enum Menu {
     private final String name;
     private final Consumer<Controller> consumer;
 
-    Menu(String symbol, String name, Consumer<Controller> consumer) {
+    MainScreen(String symbol, String name, Consumer<Controller> consumer) {
         this.symbol = symbol;
         this.name = name;
         this.consumer = consumer;
     }
 
-    public static Menu from(String symbol) {
-        return Arrays.stream(Menu.values())
-                .filter(Menu -> Menu.getSymbol().equals(symbol))
+    public static MainScreen from(String symbol) {
+        return Arrays.stream(MainScreen.values())
+                .filter(MainScreen -> MainScreen.getSymbol().equals(symbol))
                 .findAny()
-                .orElseThrow(() -> new IllegalArgumentException("[ERROR] "));
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 올바르지 않은 입력입니다."));
     }
 
     public void process(Controller controller) {
